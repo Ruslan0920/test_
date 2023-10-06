@@ -17,9 +17,11 @@ error.classList.add('is-hidden');
 divCatInfo.classList.add('is-hidden');
 
 let arrBreedsId = [];
+console.log(arrBreedsId);
 fetchBreeds()
   .then(data => {
     data.forEach(element => {
+      console.log(element.id);
       arrBreedsId.push({ text: element.name, value: element.id });
     });
     new SlimSelect({
@@ -35,8 +37,11 @@ function onSelectBreed(event) {
   loader.classList.replace('is-hidden', 'loader');
   selector.classList.add('is-hidden');
   divCatInfo.classList.add('is-hidden');
+  console.log(event);
 
   const breedId = event.currentTarget.value;
+  console.log(breedId);
+  
   fetchCatByBreed(breedId)
     .then(data => {
       loader.classList.replace('loader', 'is-hidden');
