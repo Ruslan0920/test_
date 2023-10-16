@@ -38,6 +38,8 @@ function onSelectBreed(event) {
   selector.classList.add('is-hidden');
   divCatInfo.classList.add('is-hidden');
   console.log(event);
+    console.log(event.currentTarget);
+    console.log(event.currentTarget.value);
 
   const breedId = event.currentTarget.value;
   console.log(breedId);
