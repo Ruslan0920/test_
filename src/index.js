@@ -11,7 +11,7 @@ const ref = {
   error: document.querySelector('.error'),
 };
 const { selector, divCatInfo, loader, error } = ref;
-
+  console.log(divCatInfo);
 loader.classList.replace('loader', 'is-hidden');
 error.classList.add('is-hidden');
 divCatInfo.classList.add('is-hidden');
@@ -42,14 +42,15 @@ function onSelectBreed(event) {
     console.log(event.currentTarget.value);
 
   const breedId = event.currentTarget.value;
-  console.log(breedId);
-  
+    
   fetchCatByBreed(breedId)
     .then(data => {
+      console.log(data[0]);
       loader.classList.replace('loader', 'is-hidden');
       selector.classList.remove('is-hidden');
       const { url, breeds } = data[0];
-      console.log({breeds });
+      console.log(data);
+      
 
       divCatInfo.innerHTML = `<div class="box-img"><img src="${url}" alt="${breeds[0].name}" width="400"/></div><div class="box"><h1>${breeds[0].name}</h1><p>${breeds[0].description}</p><p><b>Temperament:</b> ${breeds[0].temperament}</p></div>`;
       divCatInfo.classList.remove('is-hidden');
