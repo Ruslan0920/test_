@@ -2,7 +2,7 @@ import { fetchBreeds, fetchCatByBreed } from './cat-api';
 import './styles.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SlimSelect from 'slim-select';
-import 'slim-select/dist/slimselect.css';
+import '../node_modules/slim-select/dist/slimselect.css';
 
 const ref = {
   selector: document.querySelector('.breed-select'),
@@ -42,7 +42,8 @@ function onSelectBreed(event) {
     console.log(event.currentTarget.value);
 
   const breedId = event.currentTarget.value;
-    
+  console.log(breedId);
+  
   fetchCatByBreed(breedId)
     .then(data => {
       console.log(data[0]);
