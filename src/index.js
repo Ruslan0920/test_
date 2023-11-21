@@ -24,7 +24,7 @@ fetchBreeds()
       // console.log(data);
       arrBreedsId.push({ text: element.name, value: element.id });
     });
-    new SlimSelect({
+     const select = new SlimSelect({
       select: selector,
       data: arrBreedsId,
     });
